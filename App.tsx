@@ -1,14 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import { View } from 'react-native'
-import { Provider } from 'react-redux'
-import Home from './src/screens/home'
-import configureStore from './src/store/store'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { View } from 'react-native';
+import { Provider } from 'react-redux';
+import Home from './src/screens/home';
+import configureStore from './src/store/store';
 
-const store = configureStore()
-const Stack = createStackNavigator()
+const store = configureStore();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -22,6 +22,6 @@ export default function App() {
         </NavigationContainer>
       </View>
     </Provider>
-  )
+  );
 }
 
