@@ -4,6 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
+import GifDetail from './src/screens/gif-detail';
+import GifSearchHistory from './src/screens/gif-search-history';
 import Home from './src/screens/home';
 import configureStore from './src/store/store';
 
@@ -18,6 +20,8 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name='Home' component={Home} />
+            <Stack.Screen name='Gif' component={GifDetail} />
+            <Stack.Screen name='GifSearchHistory' component={GifSearchHistory} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
