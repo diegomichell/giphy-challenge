@@ -4,7 +4,7 @@ import { TextInput } from 'react-native';
 
 const FormInput = ({input, placeholder}) => {
   return (
-    <TextInput style={{width: '100%'}} placeholder={placeholder} {...input} />
+    <TextInput style={{flex: 1, width: '100%'}} placeholder={placeholder} {...input} />
   )
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, Text } from 'react-native-elements';
-import { reduxForm, Field } from 'redux-form';
+import { Button } from 'react-native-elements';
+import { Field, reduxForm } from 'redux-form';
 import FormInput from '../FormInput';
 
 
