@@ -1,7 +1,7 @@
 import env from '../../environment';
 import { GiphyResponse } from '../models/giphy';
 
-const {giphyApi} = env();
+const { giphyApi } = env();
 
 const GiphyService = {
   searchGif: async (search: string): Promise<GiphyResponse> => {
@@ -12,7 +12,7 @@ const GiphyService = {
       }
     });
 
-    return await r.json();
+    return r.json();
   }
 };
 

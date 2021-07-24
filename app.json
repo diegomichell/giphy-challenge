@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Challenge for BlueCoding",
+    "githubUrl": "https://github.com/diegomichell/giphy-challenge"
   }
 }

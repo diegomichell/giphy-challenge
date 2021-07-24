@@ -16,7 +16,7 @@ const GifActions = {
     return {
       type: ActionTypes.LOAD_GIFS,
       payload: {
-        gifs: gifs
+        gifs
       }
     }
   },

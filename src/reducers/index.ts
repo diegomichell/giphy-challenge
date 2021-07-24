@@ -4,5 +4,5 @@ import gifs from './gifs_reducer';
 
 export default combineReducers({
   form: formReducer,
-  gifs: gifs
+  gifs
 });
