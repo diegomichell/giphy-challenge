@@ -1,13 +1,19 @@
+import moment from 'moment';
 import React, { useEffect } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { ListItem, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import GifActions from '../actions/gif-actions';
+import { SearchHistoryItem } from '../models/search-history';
 
 interface GifSearchHistoryProps {
-  search_history: string[];
+  search_history: SearchHistoryItem[];
   loadSearchHistory: () => void;
+}
+
+interface SearchHistoryListItem {
+  item: SearchHistoryItem;
 }
 
 const GifSearchHistory = ({ search_history, loadSearchHistory }: GifSearchHistoryProps) => {
@@ -16,12 +22,15 @@ const GifSearchHistory = ({ search_history, loadSearchHistory }: GifSearchHistor
     loadSearchHistory();
   }, []);
 
-  const renderItem = ({ item }: { item: string }) => {
+  const renderItem = ({ item }: SearchHistoryListItem) => {
     return (
       <ListItem bottomDivider>
         <ListItem.Title>
-          {item}
+          {item.search}
         </ListItem.Title>
+        <ListItem.Subtitle>
+          {moment(item.searchDate).fromNow()}
+        </ListItem.Subtitle>
       </ListItem>
     );
   };

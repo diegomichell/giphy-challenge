@@ -1,4 +1,5 @@
 import { Gift } from '../models/giphy';
+import { SearchHistoryItem } from '../models/search-history';
 import ActionTypes from './action-types';
 
 
@@ -28,7 +29,7 @@ const GifActions = {
       }
     }
   },
-  serviceSaveSearchHistory(searchHistory: string[]) {
+  serviceSaveSearchHistory(searchHistory: SearchHistoryItem[]) {
     return {
       type: ActionTypes.SERVICE_SAVE_SEARCH_GIF,
       payload: {

@@ -1,4 +1,5 @@
 import { NavigationProp } from '@react-navigation/native';
+import moment from 'moment';
 import React, { useState } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Button, Card, Text } from 'react-native-elements';
@@ -7,14 +8,15 @@ import { Dispatch } from 'redux';
 import GifActions from '../actions/gif-actions';
 import SearchGiftForm from '../components/forms/search-gift-form';
 import { Gift } from '../models/giphy';
+import { SearchHistoryItem } from '../models/search-history';
 
 interface HomeProps {
   searchGif: (search: string, onFished: () => void) => void;
-  saveSearchHistory: (searchHistory: string[]) => void;
+  saveSearchHistory: (searchHistory: SearchHistoryItem[]) => void;
   gifs: Gift[];
   error_loading_gifs: string;
   navigation: NavigationProp<any>;
-  search_history: string[];
+  search_history: SearchHistoryItem[];
 }
 
 const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_history, navigation }: HomeProps) => {
@@ -25,7 +27,7 @@ const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_h
       return;
     }
 
-    saveSearchHistory([search, ...search_history]);
+    saveSearchHistory([{ search, searchDate: moment().toISOString() }, ...search_history]);
     setIsSearching(true);
     searchGif(search, () => setIsSearching(false));
   };
@@ -48,7 +50,7 @@ const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_h
   };
 
   return (
-    <View testID="homeContainer" style={styles.container}>
+    <View testID='homeContainer' style={styles.container}>
       <SearchGiftForm onSubmit={doSearch} />
       <TouchableOpacity style={{ marginTop: 5 }} onPress={() => navigation.navigate('GifSearchHistory')}>
         <Text style={{ textAlign: 'center', color: '#42a7f5', fontSize: 16 }}>See search history</Text>
@@ -90,7 +92,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     searchGif(search: string, onFished: () => void) {
       dispatch(GifActions.search(search, onFished));
     },
-    saveSearchHistory(searchHistory: string[]) {
+    saveSearchHistory(searchHistory: SearchHistoryItem[]) {
       dispatch(GifActions.serviceSaveSearchHistory(searchHistory));
     }
   };
