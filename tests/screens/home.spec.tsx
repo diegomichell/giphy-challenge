@@ -15,7 +15,6 @@ describe('Home Screen Test', () => {
       <Home gifs={gifs} search_history={search_history} saveSearchHistory={saveSearchHistory} searchGif={searchGif} />
     );
 
-    //  @ts-ignore
     await expect(getByTestId('homeContainer')).not.toBeNull();
   });
 
@@ -28,7 +27,6 @@ describe('Home Screen Test', () => {
       <Home gifs={gifs} search_history={search_history} saveSearchHistory={saveSearchHistory} searchGif={searchGif} />
     );
 
-    //  @ts-ignore
     await expect(getByText('See search history')).not.toBeNull();
   });
 });
