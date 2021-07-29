@@ -21,7 +21,7 @@ export default function App() {
           <Stack.Navigator>
             <Stack.Screen name='Home' component={Home} />
             <Stack.Screen name='Gif' component={GifDetail} />
-            <Stack.Screen name='GifSearchHistory' component={GifSearchHistory} />
+            <Stack.Screen options={{title: 'Search History'}} name='GifSearchHistory' component={GifSearchHistory} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
