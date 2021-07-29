@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "tslint 'src/**/*.ts{,x}' 'App.tsx'",
-    "test": "node_modules/.bin/jest test/**/*.spec.ts",
+    "test": "jest tests/.*\\.spec\\.ts$ tests/.*\\.spec\\.tsx$",
     "e2e": "detox test --configuration ios"
   },
   "dependencies": {
@@ -43,7 +43,7 @@
     "detox": "^18.20.0",
     "detox-expo-helpers": "^0.6.0",
     "expo-detox-hook": "^1.0.10",
-    "jest": "^27.0.6",
+    "jest": "^26.6.3",
     "jest-expo": "^42.0.1",
     "prettier": "^2.3.2",
     "react-native-testing-library": "^6.0.0",

@@ -14,12 +14,12 @@ interface HomeProps {
   searchGif: (search: string, onFished: () => void) => void;
   saveSearchHistory: (searchHistory: SearchHistoryItem[]) => void;
   gifs: Gift[];
-  error_loading_gifs: string;
-  navigation: NavigationProp<any>;
+  error_loading_gifs?: string;
+  navigation?: NavigationProp<any>;
   search_history: SearchHistoryItem[];
 }
 
-const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_history, navigation }: HomeProps) => {
+export const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_history, navigation }: HomeProps) => {
   const [isSearching, setIsSearching] = useState(false);
 
   const doSearch: any = ({ search }) => {
@@ -40,7 +40,7 @@ const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_h
           {item.title}
         </Text>
         <Button
-          onPress={() => navigation.navigate('Gif', {
+          onPress={() => navigation?.navigate('Gif', {
             item
           })}
           buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
@@ -52,7 +52,7 @@ const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_h
   return (
     <View testID='homeContainer' style={styles.container}>
       <SearchGiftForm onSubmit={doSearch} />
-      <TouchableOpacity style={{ marginTop: 5 }} onPress={() => navigation.navigate('GifSearchHistory')}>
+      <TouchableOpacity style={{ marginTop: 5 }} onPress={() => navigation?.navigate('GifSearchHistory')}>
         <Text style={{ textAlign: 'center', color: '#42a7f5', fontSize: 16 }}>See search history</Text>
       </TouchableOpacity>
 
