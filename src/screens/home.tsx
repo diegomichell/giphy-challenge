@@ -48,7 +48,7 @@ const Home = ({ searchGif, saveSearchHistory, gifs, error_loading_gifs, search_h
   };
 
   return (
-    <View style={styles.container}>
+    <View testID="homeContainer" style={styles.container}>
       <SearchGiftForm onSubmit={doSearch} />
       <TouchableOpacity style={{ marginTop: 5 }} onPress={() => navigation.navigate('GifSearchHistory')}>
         <Text style={{ textAlign: 'center', color: '#42a7f5', fontSize: 16 }}>See search history</Text>
